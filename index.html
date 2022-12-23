@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>
+      <span class="verdana">Tic </span><span class="tahoma">Tac </span
+      ><span class="trebuchet">Toe</span>
+    </h1>
+    <div class="midDiv">
+      <div class="chooseDiv">
+        <button class="selectX">X</button>
+        <button class="swap">
+          <img src="swap-vertical-bold.png" alt="" />
+        </button>
+        <button class="selectO red">O</button>
+      </div>
+      <div class="boardGame">
+        <div class="cell" id="1a"></div>
+        <div class="cell" id="1b"></div>
+        <div class="cell" id="1c"></div>
+        <div class="cell" id="2a"></div>
+        <div class="cell" id="2b"></div>
+        <div class="cell" id="2c"></div>
+        <div class="cell" id="3a"></div>
+        <div class="cell" id="3b"></div>
+        <div class="cell" id="3c"></div>
+      </div>
+      <div class="modeDiv">
+        <button class="vsPlayer selected">
+          <span class="vertical">vs Player</span>
+        </button>
+        <button class="restart"><img src="restart.png" alt="" /></button>
+        <button class="vsAI"><span class="vertical">vs AI</span></button>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="playerDiv">
+        <div class="color player1"></div>
+        <p>Player 1</p>
+      </div>
+      <div class="playerDiv">
+        <div class="color player2"></div>
+        <p>Player 2</p>
+      </div>
+    </div>
+  </body>
+</html>

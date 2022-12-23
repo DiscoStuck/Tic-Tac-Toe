@@ -1,0 +1,315 @@
+/* Reset */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Structure */
+
+*{
+    box-sizing: content-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                sans-serif;
+}
+
+.midDiv{
+    display: flex;
+    gap: 10px;
+}
+
+.chooseDiv{
+    height: 500px;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.boardGame{
+    height: 500px;
+    width: 500px;
+    background-color:#4a5240a6;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 25px;
+    gap: 10px;
+    align-items: stretch;
+    box-sizing: border-box;
+    background-clip: content-box;
+}
+
+.modeDiv{
+    height: 500px;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.legend{
+    margin-top: 20px;
+    display: flex;
+    width: 500px;
+    justify-content: space-around;
+}
+
+/* Heading style */
+
+h1{
+    font-size: 5rem;
+    margin-bottom: 40px;
+    color: #4a5240;
+}
+
+.verdana{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 4.5rem;
+}
+
+.tahoma{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.trebuchet{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 5.5rem;
+}
+
+/* Buttons style */
+
+.chooseDiv button {
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+.chooseDiv button,
+.modeDiv button {
+    height: 50%;
+    border-radius: 0px;
+    border: none;
+    background-color:#378de5;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.chooseDiv button.red,
+.modeDiv button.red{
+    background-color: #D60303;
+}
+
+.modeDiv button{
+    background-color: #4a5240;
+}
+
+.modeDiv button.selected {
+    box-shadow: 0 0 0px 6px #4a524086;
+}
+
+.chooseDiv button:active,
+.modeDiv button:active {
+    position: relative;
+    top: 1px;
+}
+
+.swap, .restart{
+    height: 20% !important;
+    background-color: #4a5240 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.swap img,
+.restart img{
+    height: 1.7rem;
+    width: 1.7rem;
+}
+
+.vertical {
+    writing-mode: vertical-rl;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Legend style */
+
+.playerDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.player1{
+    background-color: #378de5;
+}
+
+.player2{
+    background-color: #D60303;
+}
+
+/* Cells */
+
+.cell {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    font-weight: 700;
+    color: #378de5;
+    cursor: pointer;
+}
+
+.cell.red{
+    color: #D60303;
+}
