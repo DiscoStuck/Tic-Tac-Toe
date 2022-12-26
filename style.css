@@ -172,6 +172,7 @@ body{
     align-items: stretch;
     box-sizing: border-box;
     background-clip: content-box;
+    position: relative;
 }
 
 .modeDiv{
@@ -187,6 +188,33 @@ body{
     display: flex;
     width: 500px;
     justify-content: space-around;
+}
+
+.winner{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background-color: rgba(255, 255, 255, 0.712);
+    z-index: 5;
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #4a5240;
+}
+
+.winner.end{
+    width: 500px;
+    height: 500px;
+}
+
+.winner p{
+    font-size: 2rem;
+}
+
+.winner h2{
+    font-size: 5.5rem;
 }
 
 /* Heading style */

@@ -6,6 +6,7 @@ const selectO = document.querySelector(".selectO");
 const swap = document.querySelector(".swap");
 const cells = document.querySelectorAll(".cell");
 const restartButton = document.querySelector(".restart");
+const winnerSign = document.querySelector(".winner");
 
 /* Create player */
 const createPlayer = (team, kind) => {
@@ -19,7 +20,7 @@ let mode = "vsPlayer";
 const player1 = createPlayer("x", "human");
 const player2 = createPlayer("o", "ai");
 let turn = "x";
-let board = {};
+let board = Array.from(Array(3), () => Array(3).fill(null));
 
 /* Change color cells */
 function colorCells() {
@@ -37,14 +38,15 @@ function colorCells() {
 function restart() {
   cells.forEach((cell) => {
     cell.innerHTML = "";
-    board = {};
+    board = Array.from(Array(3), () => Array(3).fill(null));
+    winnerSign.innerHTML = "";
+    winnerSign.classList.remove("end");
+    turn = "x";
   });
 }
 
 /* Change team */
 function swapTeam() {
-  console.log(player2);
-  console.log(turn);
   colorCells();
   if (player1.Team === "x") {
     player1.Team = "o";
@@ -57,8 +59,6 @@ function swapTeam() {
     selectX.classList.remove("red");
     selectO.classList.add("red");
   }
-  console.log(player2);
-  console.log(turn);
 }
 
 /* Next turn */
@@ -67,21 +67,69 @@ function nextTurn() {
   else turn = "x";
 }
 
+/* Show winner */
+function showWinner(team) {
+  console.log(team);
+  if (team === "draw") winnerSign.innerHTML = `<p>It's a</p><h2>Draw</h2>`;
+  else if (team === player1.Team)
+    winnerSign.innerHTML = `<p>The winner is</p><h2>Player 1</h2>`;
+  else {
+    winnerSign.innerHTML = `<p>The winner is</p><h2>Player 2</h2>`;
+  }
+  winnerSign.classList.add("end");
+}
+
 /* Check winner */
+function checkWinner() {
+  for (let i = 0; i <= 2; i++) {
+    // Rows and columns
+    if (
+      board[i][0] != null &&
+      board[i][0] === board[i][1] &&
+      board[i][0] === board[i][2]
+    )
+      showWinner(board[i][0]);
+    if (
+      board[0][i] != null &&
+      board[0][i] === board[1][i] &&
+      board[0][i] === board[2][i]
+    )
+      showWinner(board[0][i]);
+  }
+  if (
+    //  Diagonals
+    board[0][0] != null &&
+    board[0][0] === board[1][1] &&
+    board[0][0] === board[2][2]
+  )
+    showWinner(board[0][0]);
+  if (
+    board[2][0] != null &&
+    board[2][0] === board[1][1] &&
+    board[2][0] === board[0][2]
+  )
+    showWinner(board[2][0]);
+  else {
+    for (let i = 0; i <= 2; i++) {
+      for (let j = 0; j <= 2; j++) {
+        if (board[i][j] === null) return;
+      }
+    }
+    showWinner("draw");
+  }
+}
 
 /* Add mark */
 const addMark = (team, cell) => {
   if (cell.querySelector("span")) return; // check if cell is filled
   const cellNum = cell.id;
-  board[cellNum] = team;
+  const cellNumSplit = cellNum.split("");
+  board[cellNumSplit[0]][cellNumSplit[1]] = team;
   cell.innerHTML = `<span class="drawing">${team}</span>`;
-  console.log(player2);
-  console.log(turn);
   if (turn === player2.Team) cell.classList.add("red");
   else cell.classList.remove("red");
+  checkWinner();
   nextTurn();
-  console.log(player2);
-  console.log(turn);
 };
 
 /* Events */
